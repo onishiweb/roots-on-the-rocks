@@ -101,6 +101,10 @@ module.exports = function(grunt) {
         ],
         tasks: ['jshint', 'concat']
       },
+      libsass: {
+        files : ['assets/scss/**/*.scss']
+        tasks: ['libsass', 'autoprefixer:dev']
+      },
       livereload: {
         // Browser live reloading
         // https://github.com/gruntjs/grunt-contrib-watch#live-reloading
