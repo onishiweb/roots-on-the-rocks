@@ -6,18 +6,6 @@ module.exports = function(grunt) {
   require('time-grunt')(grunt);
 
   var jsFileList = [
-    'assets/vendor/bootstrap/js/transition.js',
-    'assets/vendor/bootstrap/js/alert.js',
-    'assets/vendor/bootstrap/js/button.js',
-    'assets/vendor/bootstrap/js/carousel.js',
-    'assets/vendor/bootstrap/js/collapse.js',
-    'assets/vendor/bootstrap/js/dropdown.js',
-    'assets/vendor/bootstrap/js/modal.js',
-    'assets/vendor/bootstrap/js/tooltip.js',
-    'assets/vendor/bootstrap/js/popover.js',
-    'assets/vendor/bootstrap/js/scrollspy.js',
-    'assets/vendor/bootstrap/js/tab.js',
-    'assets/vendor/bootstrap/js/affix.js',
     'assets/js/plugins/*.js',
     'assets/js/_*.js'
   ];
@@ -34,33 +22,6 @@ module.exports = function(grunt) {
         '!assets/**/*.min.*'
       ]
     },
-    less: {
-      dev: {
-        files: {
-          'assets/css/main.css': [
-            'assets/less/main.less'
-          ]
-        },
-        options: {
-          compress: false,
-          // LESS source map
-          // To enable, set sourceMap to true and update sourceMapRootpath based on your install
-          sourceMap: true,
-          sourceMapFilename: 'assets/css/main.css.map',
-          sourceMapRootpath: '/app/themes/roots/'
-        }
-      },
-      build: {
-        files: {
-          'assets/css/main.min.css': [
-            'assets/less/main.less'
-          ]
-        },
-        options: {
-          compress: true
-        }
-      }
-    },
     concat: {
       options: {
         separator: ';',
@@ -75,6 +36,12 @@ module.exports = function(grunt) {
         files: {
           'assets/js/scripts.min.js': [jsFileList]
         }
+      }
+    },
+    libsass: {
+      main: {
+          src: 'assets/scss/main.scss',
+          dest: 'assets/css/main.css'
       }
     },
     autoprefixer: {
@@ -127,13 +94,6 @@ module.exports = function(grunt) {
       }
     },
     watch: {
-      less: {
-        files: [
-          'assets/less/*.less',
-          'assets/less/**/*.less'
-        ],
-        tasks: ['less:dev', 'autoprefixer:dev']
-      },
       js: {
         files: [
           jsFileList,
@@ -163,13 +123,13 @@ module.exports = function(grunt) {
   ]);
   grunt.registerTask('dev', [
     'jshint',
-    'less:dev',
+    'libsass',
     'autoprefixer:dev',
     'concat'
   ]);
   grunt.registerTask('build', [
     'jshint',
-    'less:build',
+    'libsass',
     'autoprefixer:build',
     'uglify',
     'modernizr',
