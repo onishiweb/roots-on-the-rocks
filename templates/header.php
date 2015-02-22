@@ -1,4 +1,4 @@
-<header role="banner">
+<header role="banner" class="banner">
   <nav role="navigation">
     <?php
       if (has_nav_menu('primary_navigation')) :
