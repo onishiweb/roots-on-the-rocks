@@ -38,6 +38,12 @@ module.exports = function(grunt) {
         }
       }
     },
+    libsass: {
+      main: {
+          src: 'assets/scss/main.scss',
+          dest: 'assets/css/main.css'
+      }
+    },
     autoprefixer: {
       options: {
         browsers: ['last 2 versions', 'ie 8', 'ie 9', 'android 2.3', 'android 4', 'opera 12']
@@ -88,13 +94,6 @@ module.exports = function(grunt) {
       }
     },
     watch: {
-      less: {
-        files: [
-          'assets/less/*.less',
-          'assets/less/**/*.less'
-        ],
-        tasks: ['less:dev', 'autoprefixer:dev']
-      },
       js: {
         files: [
           jsFileList,
@@ -124,11 +123,13 @@ module.exports = function(grunt) {
   ]);
   grunt.registerTask('dev', [
     'jshint',
+    'libsass',
     'autoprefixer:dev',
     'concat'
   ]);
   grunt.registerTask('build', [
     'jshint',
+    'libsass',
     'autoprefixer:build',
     'uglify',
     'modernizr',
