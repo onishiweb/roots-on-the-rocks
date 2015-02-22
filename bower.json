@@ -13,7 +13,9 @@
     "assets/vendor"
   ],
   "dependencies": {
-    "modernizr": "2.8.2",
-    "jquery": "1.11.1"
+    "modernizr": "2.x",
+    "jquery": "1.11.1",
+    "bourbon": "4.x",
+    "neat": "1.x"
   }
 }
