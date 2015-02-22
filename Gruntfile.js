@@ -102,7 +102,7 @@ module.exports = function(grunt) {
         tasks: ['jshint', 'concat']
       },
       libsass: {
-        files : ['assets/scss/**/*.scss']
+        files : ['assets/scss/**/*.scss'],
         tasks: ['libsass', 'autoprefixer:dev']
       },
       livereload: {
