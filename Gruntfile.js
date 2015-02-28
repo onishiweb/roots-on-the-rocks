@@ -38,9 +38,9 @@ module.exports = function(grunt) {
         }
       }
     },
-    libsass: {
+    sass: {
       main: {
-          src: 'assets/scss/main.scss',
+          src: 'assets/scss/_base.scss',
           dest: 'assets/css/main.css'
       }
     },
@@ -101,9 +101,9 @@ module.exports = function(grunt) {
         ],
         tasks: ['jshint', 'concat']
       },
-      libsass: {
+      sass: {
         files : ['assets/scss/**/*.scss'],
-        tasks: ['libsass', 'autoprefixer:dev']
+        tasks: ['sass', 'autoprefixer:dev']
       },
       livereload: {
         // Browser live reloading
@@ -127,16 +127,16 @@ module.exports = function(grunt) {
   ]);
   grunt.registerTask('dev', [
     'jshint',
-    'libsass',
+    'grunt-contrib-sass',
     'autoprefixer:dev',
     'concat'
   ]);
   grunt.registerTask('build', [
     'jshint',
-    'libsass',
+    'grunt-contrib-sass',
     'autoprefixer:build',
     'uglify',
     'modernizr',
     'version'
   ]);
-};
+};c
