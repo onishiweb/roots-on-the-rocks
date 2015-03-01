@@ -5,15 +5,15 @@
   "homepage": "http://roots.io",
   "repository": {
     "type": "git",
-    "url": "git://github.com/roots/roots.git"
+    "url": "git://github.com/onishiweb/roots-on-the-rocks.git"
   },
   "bugs": {
-    "url": "https://github.com/roots/roots/issues"
+    "url": "https://github.com/onishiweb/roots-on-the-rocks/issues"
   },
   "licenses": [
     {
-      "type": "MIT",
-      "url": "http://opensource.org/licenses/MIT"
+      "type": "GPL2",
+      "url": "http://www.gnu.org/licenses/gpl-2.0.html"
     }
   ],
   "scripts": {
