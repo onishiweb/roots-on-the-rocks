@@ -39,9 +39,14 @@ module.exports = function(grunt) {
       }
     },
     sass: {
-      main: {
-          src: 'assets/scss/_base.scss',
-          dest: 'assets/css/main.css'
+      dist: {
+        files: [{
+          expand: true,
+          cwd: 'assets/scss',
+          src: ['**/*.scss'],
+          dest: 'assets/css',
+          ext: '.css'
+        }]
       }
     },
     autoprefixer: {
@@ -127,16 +132,16 @@ module.exports = function(grunt) {
   ]);
   grunt.registerTask('dev', [
     'jshint',
-    'grunt-contrib-sass',
+    'sass',
     'autoprefixer:dev',
     'concat'
   ]);
   grunt.registerTask('build', [
     'jshint',
-    'grunt-contrib-sass',
+    'sass',
     'autoprefixer:build',
     'uglify',
     'modernizr',
     'version'
   ]);
-};c
+};
